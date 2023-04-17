@@ -1,6 +1,13 @@
 import { fetchDrinksByName } from './fetchFunction';
 import { renderCocktail } from './render_function_for_cocktail';
 import { sliceArray, resetPagination, generatePagination } from './pagination';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+Notify.init({
+  width: '340px',
+  fontSize: '24px',
+  timeout: 2000,
+});
 
 const svg = require('../images/icons.svg');
 
@@ -32,21 +39,12 @@ const titleCoctail = document.querySelector('.cocktail-title-main');
 async function onHeaderSubmit(event) {
   event.preventDefault();
   resetPagination();
-  const drinkName = event.currentTarget.elements.headerinput.value;
+  const drinkName = event.currentTarget.elements.headerinput.value.trim();
 
   if (drinkName === '') {
-    cocktailList.innerHTML = '';
-    titleCoctail.textContent = "Sorry, we didn't find any cocktail for you";
-    notFound.innerHTML = `<svg
-      class="icon-not_found"
-      width="345"
-      height="380"
-      >
-      <use href="${svg}#icon-not-found"></use>
-      </svg>`;
-    document.querySelector('.pagination').innerHTML = '';
-    return;
+    return Notify.warning('Please fill out this field');
   }
+
   const responce = await fetchDrinksByName(drinkName);
 
   if (responce.drinks === null) {
@@ -56,7 +54,7 @@ async function onHeaderSubmit(event) {
     notFound.innerHTML = `<svg
       class="icon-not_found"
       width="345"
-      height="380"              
+      height="380"
       >
       <use href="${svg}#icon-not-found"></use>
       </svg>`;

@@ -1,22 +1,18 @@
-import {
-  addCocktailToLocalStorage,
-  cokctailToFavorite,
-  removeCocktailFromLocalStorage,
-} from './add-to-remove-localstorage';
-
-import { fetchRandomCocktail, findDrinkById } from './fetchFunction';
+import { fetchRandomCocktail } from './fetchFunction';
 import { generatePagination, sliceArray } from './pagination';
 import { renderCocktail } from './render_function_for_cocktail';
 
 document.addEventListener('DOMContentLoaded', generateCocktails);
 const localFavorite = JSON.parse(localStorage.getItem('favoriteList'));
 if (localFavorite == null) {
-  let fav = { favoriteCocktails: [{ idDrink: 0 }], favoriteIngrediants: [{idIngredient: 0}] };
+  let fav = {
+    favoriteCocktails: [{ idDrink: 0 }],
+    favoriteIngrediants: [{ idIngredient: 0 }],
+  };
   localStorage.setItem('favoriteList', JSON.stringify(fav));
 }
 
 async function generateCocktails() {
-  let listOfCocktails = '';
   let cocktailArr = { drinks: [] };
   const windowWidth = window.innerWidth;
   let cocktailCount = 3;

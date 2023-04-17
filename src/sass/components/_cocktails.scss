@@ -1,20 +1,20 @@
-button{
+button {
   cursor: pointer;
 }
 
 .cocktail-list {
-    @include mobile{
-        gap: 20px;
-        padding-bottom: 24px;
-    }
-    @include tablet{
-        gap: 32px;
-        padding-bottom: 22px;
-    }
-    @include desktop{
-        gap: 31px;
-        padding-bottom: 28px;
-    }
+  @include mobile {
+    gap: 20px;
+    padding-bottom: 24px;
+  }
+  @include tablet {
+    gap: 32px;
+    padding-bottom: 22px;
+  }
+  @include desktop {
+    gap: 31px;
+    padding-bottom: 28px;
+  }
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -34,24 +34,21 @@ button{
   }
   border: 1px solid $auxiliary-orange-color;
   border-radius: 4px;
+  transition: 0.4s;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 10px yellow;
+    transform: scale(1.05, 1.05);
+  }
 }
 
-.svg-dark-theme{
-  fill: #FCFCFC;
-  pointer-events: none;
-}
-
-.svg-light{
-  fill: #202025;
-  pointer-events: none;
-}
-
-.name-dark{
+.name-dark {
   color: #202025;
 }
 
-.name-light{
-  color: #FCFCFC;
+.name-light {
+  color: #fcfcfc;
 }
 
 .cocktail-item__add-to {
@@ -70,7 +67,7 @@ button{
   }
   position: relative;
   background-color: transparent;
- 
+
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -82,16 +79,16 @@ button{
   line-height: 1.1;
   letter-spacing: 0.02em;
   transition: all 250ms $timing-function;
-  &:hover{
+  &:hover {
     background-color: $button-hover-color;
   }
-  &:hover .svg{
+  &:hover .svg {
     fill: $button-hover-color;
   }
-  &:active{
+  &:active {
     background-color: transparent;
   }
-  &:active .svg{
+  &:active .svg {
     fill: transparent;
   }
   border-style: none;
@@ -121,15 +118,15 @@ button{
   gap: 4px;
   color: $auxiliary-orange-color;
   font-family: 'Roboto', sans-serif;
-  
+
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: 0.02em;
   transition: all 250ms $timing-function;
-  &:hover{
+  &:hover {
     background-color: $button-hover-color;
   }
-  &:active{
+  &:active {
     background-color: transparent;
   }
   border-style: none;
@@ -147,7 +144,7 @@ button{
     height: 48px;
     font-size: 20px;
   }
-  @include desktop{
+  @include desktop {
     width: 182px;
   }
   position: relative;
@@ -159,11 +156,11 @@ button{
   line-height: 1.1;
   letter-spacing: 0.02em;
   transition: all 250ms $timing-function;
-  &:hover{
+  &:hover {
     background-color: $button-hover-color;
     color: $auxiliary-orange-color;
   }
-  &:active{
+  &:active {
     background-color: $auxiliary-orange-color;
     color: $white-color;
   }
@@ -172,15 +169,15 @@ button{
 }
 
 .button-wrap {
-  @include mobile{
+  @include mobile {
     margin-bottom: 24px;
     gap: 17px;
   }
-  @include tablet{
+  @include tablet {
     margin-bottom: 22px;
     gap: 12px;
   }
-  @include desktop{
+  @include desktop {
     margin-bottom: 28px;
     gap: 16px;
   }
@@ -214,18 +211,18 @@ button{
   align-items: center;
 }
 
-.cocktail-title-main{
-  @include mobile{
+.cocktail-title-main {
+  @include mobile {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 22px;
   }
-  @include tablet{
+  @include tablet {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 32px;
   }
-  @include desktop{
+  @include desktop {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 48px;
@@ -237,15 +234,15 @@ button{
   text-align: center;
 }
 
-.cocktail-item_img{
+.cocktail-item_img {
   border-radius: 3px;
 }
 
-.not-found{
+.not-found {
   display: flex;
   justify-content: center;
 }
 
-.cocktail-section{
+.cocktail-section {
   margin-bottom: 170px;
 }

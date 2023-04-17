@@ -1,6 +1,3 @@
-// const onHeaderThemeSwitcher = document.querySelector(
-//   '[data-header-theme-switcher]'
-// );
 const onHeaderThemeSwitcher = document.querySelectorAll(
   '[data-header-theme-switcher]'
 );
@@ -25,6 +22,7 @@ const burgerMenuArrowIcon = document.querySelector('.burger-menu-arrow-icon');
 const burgerThemeSwitcher = document.querySelector(
   '[data-burger-theme-switcher]'
 );
+const closeIcon = document.querySelector('.cocktails-modal-close__icon');
 
 function checkTheme() {
   if (localStorage.getItem('ui-theme') === 'dark') {
@@ -33,7 +31,6 @@ function checkTheme() {
 }
 checkTheme();
 
-// onHeaderThemeSwitcher.addEventListener('click', onClickHeaderThemeSwitcher);
 onHeaderThemeSwitcher.forEach(item =>
   item.addEventListener('click', onClickHeaderThemeSwitcher)
 );
@@ -72,68 +69,5 @@ function headerThemeSwitcher() {
     item.classList.toggle('burger-menu-btn-icon-dark')
   );
   mobileMenu.classList.toggle('dark-size');
+  if (closeIcon) closeIcon.classList.toggle('dark-theme-close');
 }
-
-// function headerThemeSwitcher() {
-//   switcherDot.forEach(item => item.classList.toggle('switcher-dot-left'));
-
-//   headerTextColorSwitcherLight.forEach(item =>
-//     item.classList.toggle('burger-switcher-light-revers')
-//   );
-//   body.classList.toggle('dark-size');
-//   switcherButton.forEach(item => item.classList.toggle('switcher-button-dark'));
-//   favoriteItems.forEach(item => item.classList.toggle('favorite__items-dark'));
-
-//   headerTextColorSwitcherDark.forEach(item =>
-//     item.classList.toggle('header-switcher-dark-revers')
-//   );
-//   switcherDot.forEach(item => item.classList.toggle('switcher-dot-dark'));
-
-//   navItems.forEach(item => item.classList.toggle('theme'));
-//   hnavigationDropItem.forEach(item =>
-//     item.classList.toggle('navigation-drop__item-dark')
-//   );
-//   darkThemeText.forEach(item => item.classList.toggle('dark-theme'));
-//   darkThemeGreyText.forEach(item => item.classList.toggle('dark-theme-grey'));
-//   burgerMenuBtnIcon.forEach(item =>
-//     item.classList.toggle('burger-menu-btn-icon-dark')
-//   );
-//   mobileMenu.classList.toggle('dark-size');
-// }
-
-// ---------------------------------------------------- for burger
-
-// burgerThemeSwitcher.addEventListener('click', onClickBurgerThemeSwitcher);
-
-// function onClickBurgerThemeSwitcher() {
-//   const theme = localStorage.getItem('ui-theme');
-//   if (theme === '' || theme === 'light') {
-//     localStorage.setItem('ui-theme', 'dark');
-//     onBurgerThemeSwitcher();
-//   } else {
-//     localStorage.setItem('ui-theme', 'light');
-//     onBurgerThemeSwitcher();
-//   }
-// }
-
-// function onBurgerThemeSwitcher() {
-//   switcherDot.forEach(item => item.classList.toggle('switcher-dot-left'));
-//   headerTextColorSwitcherLight.forEach(item =>
-//     item.classList.toggle('burger-switcher-light-revers')
-//   );
-//   body.classList.toggle('dark-size');
-//   switcherButton.forEach(item => item.classList.toggle('switcher-button-dark'));
-//   favoriteItems.forEach(item => item.classList.toggle('favorite__items-dark'));
-//   headerTextColorSwitcherDark.forEach(item =>
-//     item.classList.toggle('header-switcher-dark-revers')
-//   );
-//   switcherDot.forEach(item => item.classList.toggle('switcher-dot-dark'));
-//   darkThemeText.forEach(item => item.classList.toggle('dark-theme'));
-//   // burgerMenuBtnIcon.classList.toggle('burger-menu-btn-icon-dark');
-//   burgerMenuArrowIcon.classList.toggle('burger-menu-btn-icon-dark');
-//   darkThemeGreyText.forEach(item => item.classList.toggle('dark-theme-grey'));
-//   mobileMenu.classList.toggle('dark-size');
-// }
-
-// dark-theme-tex - додати туди не текст має ставати білим
-// dark-theme-grey-text додати туди де текст має бути сірим

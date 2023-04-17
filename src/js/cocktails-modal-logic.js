@@ -1,7 +1,9 @@
-import { addCocktailToLocalStorage, removeCocktailFromLocalStorage } from './add-to-remove-localstorage';
+import {
+  addCocktailToLocalStorage,
+  removeCocktailFromLocalStorage,
+} from './add-to-remove-localstorage';
 import { fetchDrinkById } from './fetchFunction';
-import { openIngredientsModal } from './modal-ingredients';  
-
+import { openIngredientsModal } from './modal-ingredients';
 
 const cocktailsModal = document.querySelector('[data-cocktails-modal]');
 const closeCocktailsModalBtn = document.querySelector(
@@ -21,10 +23,10 @@ closeCocktailsModalBtn.addEventListener('click', toggleModal);
 cocktailsModal.addEventListener('click', e => {
   if (e.target !== cocktailsModal) {
     if (e.target.classList.contains('add-to-favorite')) {
-      addCocktailToLocalStorage(e)
+      addCocktailToLocalStorage(e);
     }
     if (e.target.classList.contains('remove-from-favorite')) {
-      removeCocktailFromLocalStorage(e)
+      removeCocktailFromLocalStorage(e);
     }
     return;
   }
@@ -33,7 +35,7 @@ cocktailsModal.addEventListener('click', e => {
 
 export async function renderDrinkInfo(data) {
   const drink = data.drinks[0];
-  
+
   const savedTheme = localStorage.getItem('ui-theme');
 
   const ingArr = [];
@@ -101,41 +103,52 @@ export async function renderDrinkInfo(data) {
     cocktailsModal.firstElementChild.classList.remove('dark-size');
   }
 
-  const localFavorite = JSON.parse(localStorage.getItem('favoriteList'))
+  const localFavorite = JSON.parse(localStorage.getItem('favoriteList'));
   const favoriteCocktail = localFavorite.favoriteCocktails.map(el => {
     return el.idDrink;
   });
-  if(favoriteCocktail.includes(Number(drink.idDrink))){
-    document.querySelector('.cocktails-modal-favorite').classList.remove('add-to-favorite')
-    document.querySelector('.cocktails-modal-favorite').classList.add('remove-from-favorite')
-    document.querySelector('.cocktails-modal-favorite').innerText = 'Remove from favorite';
-  }else{
-    document.querySelector('.cocktails-modal-favorite').classList.add('add-to-favorite')
-    document.querySelector('.cocktails-modal-favorite').classList.remove('remove-from-favorite')
-    document.querySelector('.cocktails-modal-favorite').innerText = 'Add to favorite';
+  if (favoriteCocktail.includes(Number(drink.idDrink))) {
+    document
+      .querySelector('.cocktails-modal-favorite')
+      .classList.remove('add-to-favorite');
+    document
+      .querySelector('.cocktails-modal-favorite')
+      .classList.add('remove-from-favorite');
+    document.querySelector('.cocktails-modal-favorite').innerText =
+      'Remove from favorite';
+  } else {
+    document
+      .querySelector('.cocktails-modal-favorite')
+      .classList.add('add-to-favorite');
+    document
+      .querySelector('.cocktails-modal-favorite')
+      .classList.remove('remove-from-favorite');
+    document.querySelector('.cocktails-modal-favorite').innerText =
+      'Add to favorite';
   }
 
   drinkInfo.innerHTML = markup;
-  
-  const modalIngredientsList = document.querySelector('.cocktail-ingredients-list')
 
-  modalIngredientsList.addEventListener('click', openIngredientsModal)
+  const modalIngredientsList = document.querySelector(
+    '.cocktail-ingredients-list'
+  );
 
+  modalIngredientsList.addEventListener('click', openIngredientsModal);
 }
 
 export async function openCocktailsModal(e) {
-  if (e.target.classList.contains('cocktail-item__learn-more')) {    
+  if (e.target.classList.contains('cocktail-item__learn-more')) {
     const elemId = e.target.parentNode.dataset.idDrink;
     document.querySelector('.cocktails-modal').dataset.idDrink = elemId;
     const foundedDrink = await fetchDrinkById(elemId);
     renderDrinkInfo(foundedDrink);
     toggleModal();
   }
-  if(e.target.classList.contains('cocktail-item__add-to')){
-    addCocktailToLocalStorage(e)
+  if (e.target.classList.contains('cocktail-item__add-to')) {
+    addCocktailToLocalStorage(e);
   }
-  if(e.target.classList.contains('cocktail-item__remove')){
-    removeCocktailFromLocalStorage(e)
+  if (e.target.classList.contains('cocktail-item__remove')) {
+    removeCocktailFromLocalStorage(e);
   }
 }
 
