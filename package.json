@@ -2,14 +2,14 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://cldblz.github.io/cocktails",
+  "homepage": "https://berlinchik.github.io/Cocktails-team-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /cocktails/"
+    "build": "parcel build src/*.html --public-url /Cocktails-team-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cldblz/cocktails.git"
+    "url": "git+https://github.com/cldblz/Cocktails-team-project.git"
   },
   "keywords": [],
   "author": "Volodymyr Kushnir <cloudyshogun@gmail.com>",
